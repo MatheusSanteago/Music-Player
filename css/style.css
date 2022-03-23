@@ -1,0 +1,59 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: absolute;
+  margin-top: 80px;
+  left: 500px;
+  background-color: #c4ebe8;
+  width: 1000px;
+  height: 800px;
+  border-radius: 20px;
+  background-image: linear-gradient(to right bottom, #18a35d, #2626c4);
+}
+.container i {
+  margin: 20px;
+  font-size: 2em;
+}
+.container-music {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 30px;
+  left: 500px;
+  background-color: #8b8989;
+  width: 400px;
+  height: 700px;
+  border-radius: 20px;
+  padding: 20px;
+}
+.container-menu {
+  background-color: rgba(73, 23, 23, 0.986);
+  width: 350px;
+  height: 70px;
+  border-radius: 1git commit -m "meu primeiro commit" 0px;
+  background-image: linear-gradient(to right bottom, #18a35d, #2626c4);
+  padding: 3px;
+}
+.container-menu i {
+  margin-top: 20px;
+  margin-left: 40px;
+  font-size: 1.7em;
+}
+.container-menu i:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.container-photo {
+  background-color: #fff9f9;
+  width: 350px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

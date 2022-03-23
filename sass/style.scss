@@ -1,0 +1,49 @@
+@import '_mixins';
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    position: absolute;
+    margin-top: 80px;
+    left: 500px;
+    @include background(#c4ebe8,1000px,800px,20px);
+    background-image: linear-gradient(to right bottom, #18a35d, rgb(38, 38, 196));
+    // transition: 2s ease-in-out;
+    i{
+        margin: 20px;
+        font-size: 2em;
+    }
+    &-music{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        bottom: 30px;
+        left: 500px;
+        @include background(#8b8989,400px,700px,20px);
+        
+        padding: 20px;
+    }
+    &-menu{
+        @include background(rgba(73, 23, 23, 0.986),350px,70px,10px);
+        background-image: linear-gradient(to right bottom, #18a35d, rgb(38, 38, 196));
+        padding: 3px;
+        i{
+            margin-top: 20px;
+            margin-left: 40px;
+            font-size: 1.7em;
+            &:hover{
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+        
+    }
+    &-photo{
+        @include background(#fff9f9,350px,350px,10px);
+    }
+}

@@ -1,0 +1,6 @@
+@mixin background($color,$width,$height,$br){
+  background-color: $color;
+  width: $width;
+  height: $height;
+  border-radius: $br;  
+}
