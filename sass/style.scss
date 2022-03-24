@@ -1,49 +1,96 @@
-@import '_mixins';
+@import "_mixins";
 
 body {
-    background-color: black;
-    margin: 0;
-    padding: 0;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  overflow: hidden;
 }
-.container{
-    position: absolute;
-    margin-top: 80px;
+.container {
+  position: relative;
+  animation: roll 5s 0s 1 forwards;
+  margin-top: 60px;
+  @include background(#c4ebe8, 1000px, 80%, 20px);
+  background-image: linear-gradient(to right bottom, #18a35d, rgb(38, 38, 196));
+  // transition: 2s ease-in-out;
+  i {
+    margin: 20px;
+    font-size: 2em;
+    transition: 1s;
+    transition-property: color;
+    &:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  &-music {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 30px;
     left: 500px;
-    @include background(#c4ebe8,1000px,800px,20px);
-    background-image: linear-gradient(to right bottom, #18a35d, rgb(38, 38, 196));
-    // transition: 2s ease-in-out;
-    i{
-        margin: 20px;
-        font-size: 2em;
+    @include background(rgba(255, 255, 255, 0.2), 400px, 700px, 20px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  @keyframes roll {
+    from {
+      right: -1000px;
     }
-    &-music{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        bottom: 30px;
-        left: 500px;
-        @include background(#8b8989,400px,700px,20px);
-        
-        padding: 20px;
+    to {
+      right: 0px;
     }
-    &-menu{
-        @include background(rgba(73, 23, 23, 0.986),350px,70px,10px);
-        background-image: linear-gradient(to right bottom, #18a35d, rgb(38, 38, 196));
-        padding: 3px;
-        i{
-            margin-top: 20px;
-            margin-left: 40px;
-            font-size: 1.7em;
-            &:hover{
-                color: #fff;
-                cursor: pointer;
-            }
-        }
-        
+  }
+  &-menu {
+    position: relative;
+    animation: roll 3s 0s 1 forwards;
+    transition: 2s ease-in;
+    @include background(rgba(252, 245, 245, 0.322), 350px, 70px, 10px);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(254, 255, 254, 0.281),
+      rgba(250, 250, 255, 0)
+    );
+    padding: 3px;
+    i {
+      margin-top: 20px;
+      margin-left: 40px;
+      font-size: 1.7em;
+      transition: 600ms;
+      transition-property: color;
+      &:hover {
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+      }
     }
-    &-photo{
-        @include background(#fff9f9,350px,350px,10px);
-    }
+  }
+  &-photo {
+    @include background(#fff9f9, 350px, 350px, 10px);
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+.photo {
+  max-width: 350px;
+  height: 350px;
+  border-radius: 10px;
+  border: 3px solid #fff
+}
+.texts {
+  font-family: verdana, arial, helvetica;
+  text-align: center;
 }
