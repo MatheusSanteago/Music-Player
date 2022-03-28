@@ -1,16 +1,17 @@
 body {
-  background-color: black;
+  background-color: white;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   justify-items: center;
   overflow: hidden;
+  transition-property: background-color;
+  transition: 2s;
 }
 
 .container {
   position: relative;
-  animation: roll 5s 0s 1 forwards;
   margin-top: 60px;
   background-color: #c4ebe8;
   width: 1000px;
@@ -19,13 +20,14 @@ body {
   background-image: linear-gradient(to right bottom, #18a35d, #2626c4);
 }
 .container i {
+  color: white;
   margin: 20px;
   font-size: 2em;
   transition: 1s;
   transition-property: color;
 }
 .container i:hover {
-  color: #fff;
+  color: black;
   cursor: pointer;
 }
 .container-music {
@@ -57,8 +59,6 @@ body {
 }
 .container-menu {
   position: relative;
-  animation: roll 3s 0s 1 forwards;
-  transition: 2s ease-in;
   background-color: rgba(252, 245, 245, 0.322);
   width: 350px;
   height: 70px;
@@ -72,6 +72,7 @@ body {
   padding: 3px;
 }
 .container-menu i {
+  color: black;
   margin-top: 20px;
   margin-left: 40px;
   font-size: 1.7em;
@@ -101,6 +102,55 @@ body {
 .texts {
   font-family: verdana, arial, helvetica;
   text-align: center;
+}
+
+#music-slider {
+  width: 350px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: #ddd;
+  border: none;
+  border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: black;
+  margin-top: -4px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: white;
+}
+
+.dark-mode {
+  background-color: black;
+  transition-property: background-color;
+  transition: 2s;
+}
+.dark-mode-img::before {
+  background-color: none;
+  color: black;
+}
+.dark-mode-img:hover::before {
+  color: #ffffff;
+  transition: 1s;
+  transition-property: color;
 }
 
 /*# sourceMappingURL=style.css.map */
