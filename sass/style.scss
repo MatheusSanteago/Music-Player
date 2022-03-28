@@ -1,28 +1,32 @@
 @import "_mixins";
 
 body {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   justify-items: center;
   overflow: hidden;
+  transition-property: background-color;
+  transition: 2s;
 }
+
 .container {
   position: relative;
-  animation: roll 5s 0s 1 forwards;
+  // animation: roll 5s 0s 1 forwards;
   margin-top: 60px;
   @include background(#c4ebe8, 1000px, 80%, 20px);
   background-image: linear-gradient(to right bottom, #18a35d, rgb(38, 38, 196));
   // transition: 2s ease-in-out;
   i {
+    color: rgb(255, 255, 255);
     margin: 20px;
     font-size: 2em;
     transition: 1s;
     transition-property: color;
     &:hover {
-      color: #fff;
+      color: rgb(0, 0, 0);
       cursor: pointer;
     }
   }
@@ -52,8 +56,8 @@ body {
   }
   &-menu {
     position: relative;
-    animation: roll 3s 0s 1 forwards;
-    transition: 2s ease-in;
+    // animation: roll 3s 0s 1 forwards;
+    // transition: 2s ease-in;
     @include background(rgba(252, 245, 245, 0.322), 350px, 70px, 10px);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -67,6 +71,7 @@ body {
     );
     padding: 3px;
     i {
+      color: rgb(0, 0, 0);
       margin-top: 20px;
       margin-left: 40px;
       font-size: 1.7em;
@@ -93,4 +98,48 @@ body {
 .texts {
   font-family: verdana, arial, helvetica;
   text-align: center;
+}
+#music-slider{
+  width:350px;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 10px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: #ddd;
+  border: none;
+  border-radius: 10px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(0, 0, 0);
+  margin-top: -4px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgb(255, 255, 255);
+}
+.dark-mode{
+  background-color: rgb(0, 0, 0);
+  transition-property: background-color;
+  transition: 2s;
+  &-img::before{
+    background-color: none;
+    color: black;
+  }
+  &-img:hover::before{
+    color: #ffffff;
+    transition: 1s;
+    transition-property: color;
+  }
 }

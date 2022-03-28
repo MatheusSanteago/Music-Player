@@ -7,6 +7,8 @@ let sound = document.getElementById("audio");
 let song = document.querySelectorAll(".song")[0];
 let nome = document.querySelectorAll(".song")[1];
 let photo = document.querySelector(".photo");
+let slider = document.getElementById("music-slider");
+let img = document.getElementById("ix");
 
 var musics = [
   {
@@ -35,10 +37,30 @@ var musics = [
   },
 ];
 
-
 window.onload = () => {
   songList(musics, 0);
 };
+
+sound.ontimeupdate = getTime;
+slider.ontimeupdate = getSliderTime;
+
+function getTime() {
+    let time = sound.currentTime;
+    let duration = sound.duration;
+    slider.max = duration;
+    slider.value = time;
+
+    console.log(time);
+    console.log(duration);
+
+    if(time == duration){
+      nextSong();
+    }
+}
+
+function getSliderTime() {
+  sound.currentTime = slider.value;
+}
 
 var i = 0;
 var iB = 4;
@@ -47,31 +69,29 @@ btnPlay.addEventListener("click", function () {
   audio.play();
 });
 btnPause.addEventListener("click", function () {
-    audio.pause();
+  audio.pause();
 });
-btnBackward.addEventListener("click", function () {
-    
-    if (iB >= 0) {
-        songList(musics, (iB -= 1));
-        audio.play();
-      } else {
-        iB = 4;
-        songList(musics, 3);
-        audio.play();
-      }
-     
-  });
+btnBackward.addEventListener("click", nextSong);
+
+function nextSong() {
+  if (iB >= 0) {
+    songList(musics, (iB -= 1));
+    audio.play();
+  } else {
+    iB = 4;
+    songList(musics, 3);
+    audio.play();
+  }
+}
 btnForward.addEventListener("click", function (e) {
- 
   if (i < 3) {
     songList(musics, (i += 1));
   } else {
-    i = 0
+    i = 0;
     songList(musics, i);
   }
   audio.play();
 });
-
 
 function songList(music, e) {
   var a = music[e];
@@ -79,4 +99,10 @@ function songList(music, e) {
   song.innerHTML = a.song;
   nome.innerHTML = a.artist;
   photo.src = a.url;
+}
+
+darkMode = () => { 
+  var body = document.body;
+  body.classList.toggle('dark-mode');
+  img.classList.toggle('dark-mode-img');
 }
